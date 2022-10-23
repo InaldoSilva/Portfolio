@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(0, 0, 0)
+}
+
+canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 100%;
+    text-align: center;
+    border: 5px rgb(168, 239, 255);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+.corpo, canvas{
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    width: 580px;
+    height: 480px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1rem
+}
+
+.corpo::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #32404a;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(transparent, rgb(168, 239, 255), transparent 30%);
+    animation: rotate 4s linear infinite
+}
+
+.corpo::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: rgb(244, 242, 242);
+    border-radius: 5px
+}
+
+.corpo::after {
+    animation: opacityChange 5s infinite linear
+}
+
+@keyframes opacityChange {
+    50% {
+        opacity: .5
+    }
+
+    100% {
+        opacity: 1
+    }
+}
